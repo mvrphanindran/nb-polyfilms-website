@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #fafaf9;
+  --color-white: #ffffff;
+  --color-mist: #eef1f4;
+
+  --color-navy-950: #060f1f;
+  --color-navy-900: #0b1f3a;
+  --color-navy-800: #122a4d;
+  --color-navy-700: #1a3a63;
+
+  --color-ink: #10151d;
+  --color-ink-soft: #4a5568;
+  --color-ink-faint: #7a8494;
+
+  --color-blue-600: #1e4fd6;
+  --color-blue-500: #2f63e8;
+  --color-blue-50: #eef2fc;
+
+  --color-silver-300: #c3cbd1;
+  --color-silver-400: #9baab4;
+  --color-silver-500: #7c8b96;
+
+  --color-line: #e2e5ea;
+  --color-line-dark: rgba(255, 255, 255, 0.14);
+
+  --font-display: var(--font-archivo);
+  --font-body: var(--font-inter);
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-white: var(--color-white);
+  --color-mist: var(--color-mist);
+
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
+
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-faint: var(--color-ink-faint);
+
+  --color-blue-600: var(--color-blue-600);
+  --color-blue-500: var(--color-blue-500);
+  --color-blue-50: var(--color-blue-50);
+
+  --color-silver-300: var(--color-silver-300);
+  --color-silver-400: var(--color-silver-400);
+  --color-silver-500: var(--color-silver-500);
+
+  --color-line: var(--color-line);
+  --color-line-dark: var(--color-line-dark);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Angular corner-cut used on image frames and cards throughout the site */
+  .clip-notch {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 2.5rem 100%, 0 calc(100% - 2.5rem));
+  }
+
+  .clip-notch-sm {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 1.25rem 100%, 0 calc(100% - 1.25rem));
+  }
+
+  .clip-diagonal-l {
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .clip-diagonal-r {
+    clip-path: polygon(0 0, 88% 0, 100% 100%, 0 100%);
+  }
+
+  /*
+   * Global blue → white atmospheric transition system.
+   * `.field-scrim` paints the deep-navy → blue brand wash used behind text and
+   * over photography (navy/blue only — never black). `.field-fade` dissolves
+   * whatever it's applied to down into the section's own background via a
+   * single continuous mask, so a blue/image field can bleed into white with
+   * no hard edge. Reusable across any page's intro section.
+   */
+  .field-scrim {
+    background: radial-gradient(
+      130% 120% at 14% 20%,
+      var(--color-navy-900) 0%,
+      var(--color-navy-900) 30%,
+      rgba(11, 31, 58, 0.72) 46%,
+      rgba(30, 79, 214, 0.34) 64%,
+      rgba(30, 79, 214, 0.1) 80%,
+      transparent 92%
+    );
+  }
+
+  .field-fade {
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 97%);
+    mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 97%);
+  }
+}
+
+::selection {
+  background: var(--color-blue-600);
+  color: white;
+}
