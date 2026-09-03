@@ -8,10 +8,7 @@ export function Eyebrow({
   tone?: "dark" | "light";
 }) {
   return (
-    <div className="flex items-center gap-3">
-      <span
-        className={`h-px w-8 ${tone === "dark" ? "bg-blue-600" : "bg-blue-500"}`}
-      />
+    <div className="flex items-center">
       <span
         className={`font-display text-xs font-semibold uppercase tracking-[0.28em] ${
           tone === "dark" ? "text-blue-600" : "text-blue-500"

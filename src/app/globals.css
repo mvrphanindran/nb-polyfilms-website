@@ -27,6 +27,7 @@
 
   --font-display: var(--font-archivo);
   --font-body: var(--font-inter);
+  --font-hero: var(--font-inter-tight);
 }
 
 @theme inline {
@@ -56,6 +57,7 @@
 
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
+  --font-hero: var(--font-hero);
 }
 
 body {
@@ -67,6 +69,10 @@ body {
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
+  }
+
+  .font-hero {
+    font-family: var(--font-hero);
   }
 
   .text-balance {

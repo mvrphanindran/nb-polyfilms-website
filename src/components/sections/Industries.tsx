@@ -1,19 +1,14 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { DotGrid } from "@/components/ui/DotGrid";
 import { industries } from "@/lib/content";
 
 export function Industries() {
   return (
-    <section id="industries" className="relative overflow-hidden bg-paper py-24 lg:py-32">
-      <div className="pointer-events-none absolute -left-3 bottom-10 text-line">
-        <DotGrid />
-      </div>
-
+    <section id="industries" className="relative overflow-hidden bg-paper py-20 lg:py-24">
       <Container>
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10">
-          <div className="flex flex-col gap-8 lg:col-span-4">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="flex flex-col gap-7 lg:col-span-5">
             <SectionHeading
               eyebrow="Industries We Serve"
               title="Diverse industries. One commitment."
@@ -22,24 +17,21 @@ export function Industries() {
               We understand the unique demands of every industry and deliver
               packaging that protects, preserves and performs.
             </p>
-            <div className="relative mt-2 hidden aspect-[4/5] w-full max-w-xs overflow-hidden clip-notch-sm lg:block">
+            <div className="relative mt-2 aspect-[4/5] w-full max-w-xs overflow-hidden">
               <Image
-                src="/images/brochure/materials-roll.jpg"
-                alt="Roll of flexible packaging film"
+                src="/images/Pouch-Format-Range.png"
+                alt="A range of flexible pouch formats"
                 fill
-                sizes="320px"
+                sizes="(min-width: 1024px) 30vw, 80vw"
                 className="object-cover"
               />
             </div>
           </div>
 
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2">
               {industries.map((industry, i) => (
-                <div
-                  key={industry.name}
-                  className="border-t border-line py-6 pr-6 first:border-t-0 [&:nth-child(2)]:sm:border-t-0"
-                >
+                <div key={industry.name} className="py-6 pr-6">
                   <div className="flex items-start gap-4">
                     <span className="font-display text-xs font-semibold text-blue-600">
                       {String(i + 1).padStart(2, "0")}

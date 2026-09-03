@@ -1,50 +1,28 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
-import { StructureLine } from "@/components/ui/StructureLine";
-import { companyMeta } from "@/lib/content";
 
 export function Positioning() {
   return (
-    <section className="relative bg-white pb-24 pt-16 lg:pb-28 lg:pt-20">
-      <StructureLine />
+    <section className="relative bg-white pb-24 pt-18 lg:pb-32 lg:pt-24">
       <Container>
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10">
-          <div className="flex flex-col justify-center gap-6 lg:col-span-6">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+          <div className="flex flex-col gap-7 lg:col-span-7">
             <Eyebrow>NB Polyfilms</Eyebrow>
-            <h2 className="font-display text-balance text-3xl font-semibold leading-[1.12] tracking-tight text-navy-900 sm:text-4xl lg:text-[2.75rem]">
-              {companyMeta.positioningHeadline}
+            <h2 className="max-w-2xl font-hero text-balance text-5xl font-semibold leading-[0.98] text-navy-900 sm:text-6xl lg:text-[4.5rem]">
+              Packaging engineered around what matters.
             </h2>
-            <p className="max-w-lg text-[15px] leading-relaxed text-ink-soft">
-              {companyMeta.description}
+            <p className="max-w-2xl text-lg leading-relaxed text-ink-soft">
+              From printed laminates to finished flexible packaging, NB Polyfilms brings materials, converting and process expertise together to create packaging that performs consistently across demanding applications.
             </p>
-            <div className="mt-2 flex items-center gap-6">
-              <div className="flex flex-col">
-                <span className="font-display text-2xl font-semibold text-navy-900">
-                  {companyMeta.established}
-                </span>
-                <span className="text-xs uppercase tracking-[0.12em] text-ink-faint">
-                  Established
-                </span>
-              </div>
-              <span className="h-10 w-px bg-line" />
-              <div className="flex flex-col">
-                <span className="font-display text-2xl font-semibold text-navy-900">
-                  {companyMeta.coreBusiness}
-                </span>
-                <span className="text-xs uppercase tracking-[0.12em] text-ink-faint">
-                  Core Business
-                </span>
-              </div>
-            </div>
           </div>
 
-          <div className="relative aspect-[4/3] overflow-hidden clip-notch lg:col-span-6">
+          <div className="relative aspect-[4/5] w-full max-w-sm justify-self-center overflow-hidden lg:col-span-5 lg:max-w-none lg:justify-self-end">
             <Image
-              src="/images/brochure/facility-exterior.jpg"
-              alt="NB Polyfilms manufacturing facility"
+              src="/images/Printed Laminate Close-Up.png"
+              alt="Close-up of printed flexible laminate film"
               fill
-              sizes="(min-width: 1024px) 45vw, 100vw"
+              sizes="(min-width: 1024px) 35vw, 80vw"
               className="object-cover"
             />
           </div>

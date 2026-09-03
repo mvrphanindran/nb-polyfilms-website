@@ -11,7 +11,7 @@ export function Hero() {
           no separate overlay boxes, no hard edges. */}
       <div className="field-fade absolute inset-0">
         <Image
-          src="/images/brochure/hero-rollstock.jpg"
+          src="/images/brochure/hero-rollstock.png"
           alt="Printed rollstock film for flexible packaging on an NB Polyfilms production line"
           fill
           priority

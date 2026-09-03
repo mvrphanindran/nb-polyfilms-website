@@ -1,52 +1,56 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { whyNB } from "@/lib/content";
+
+const pillars = [
+  {
+    number: "01",
+    title: "Material Expertise",
+    description: "Packaging structures developed around the requirements of the application.",
+  },
+  {
+    number: "02",
+    title: "Converting Capability",
+    description: "Printing, lamination, slitting and finishing brought together within one packaging workflow.",
+  },
+  {
+    number: "03",
+    title: "Consistent Quality",
+    description: "Controlled processes focused on repeatable performance from film to finished packaging.",
+  },
+] as const;
 
 export function WhyNB() {
   return (
-    <section className="relative bg-paper py-24 lg:py-32">
+    <section id="why-nb" className="relative bg-white py-24 lg:py-32">
       <Container>
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-6 xl:col-span-5">
-            <div className="relative aspect-[5/4] w-full overflow-hidden clip-notch">
-              <Image
-                src="/images/brochure/whynb-products.jpg"
-                alt="NB Polyfilms branded stand-up pouches for tea, spices, coffee, rice and pet food"
-                fill
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover"
-              />
-            </div>
+        <div className="flex flex-col gap-14">
+          <div className="max-w-4xl">
+            <p className="mb-6 font-display text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+              Why NB
+            </p>
+            <h2 className="font-hero text-balance text-5xl font-semibold leading-[0.98] text-navy-900 sm:text-6xl lg:text-[4.25rem]">
+              Built to perform. Built to deliver.
+            </h2>
           </div>
 
-          <div className="flex flex-col gap-12 lg:col-span-6 lg:col-start-7 xl:col-span-6 xl:col-start-7">
-            <SectionHeading
-              eyebrow="Why NB"
-              title={
-                <>
-                  Integrated capability.
-                  <br />
-                  Stronger solutions.
-                </>
-              }
-            />
-
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2">
-              {whyNB.map((item) => (
-                <div key={item.number} className="flex flex-col gap-3 border-t border-line pt-5">
-                  <span className="font-display text-sm font-semibold text-blue-600">
-                    {item.number}
-                  </span>
-                  <h3 className="font-display text-lg font-semibold text-navy-900">
+          <div className="grid gap-5 md:grid-cols-3 lg:gap-6">
+            {pillars.map((item) => (
+              <article
+                key={item.number}
+                className="group flex min-h-72 flex-col justify-between bg-mist/55 p-8 transition-colors duration-300 hover:bg-blue-50/70 sm:p-9 lg:min-h-80 lg:p-10"
+              >
+                <span className="font-display text-sm font-semibold text-blue-600">
+                  {item.number}
+                </span>
+                <div className="mt-16 flex flex-col gap-5">
+                  <h3 className="font-display text-2xl font-semibold leading-tight text-navy-900">
                     {item.title}
                   </h3>
-                  <p className="text-[14px] leading-relaxed text-ink-soft">
+                  <p className="max-w-sm text-[15px] leading-relaxed text-ink-soft">
                     {item.description}
                   </p>
                 </div>
-              ))}
-            </div>
+              </article>
+            ))}
           </div>
         </div>
       </Container>

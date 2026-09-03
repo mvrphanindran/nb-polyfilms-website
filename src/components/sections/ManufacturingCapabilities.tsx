@@ -21,9 +21,21 @@ export function ManufacturingCapabilities() {
         />
       </Container>
 
+      {/* Lead image — the manufacturing environment */}
+      <div className="relative mt-14 aspect-[16/9] w-full overflow-hidden lg:mt-16">
+        <Image
+          src="/images/capabilities-hero.png"
+          alt="NB Polyfilms converting line in operation"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
+
       {/* Process rail */}
-      <Container className="mt-16">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
+      <Container className="mt-14 lg:mt-16">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6 lg:gap-8">
           {process.map((step) => (
             <div key={step.step} className="flex flex-col gap-3">
               <div className="relative aspect-[3/4] w-full overflow-hidden">
@@ -35,7 +47,7 @@ export function ManufacturingCapabilities() {
                   className="object-cover"
                 />
               </div>
-              <div className="flex items-baseline gap-2">
+              <div className="flex items-baseline gap-3 border-t border-line pt-3">
                 <span className="font-display text-xs font-semibold text-blue-600">
                   {step.step}
                 </span>
@@ -48,42 +60,34 @@ export function ManufacturingCapabilities() {
         </div>
       </Container>
 
-      {/* Factory + key capabilities */}
-      <div className="relative mt-28 lg:mt-32">
+      {/* Key capabilities */}
+      <div className="relative mt-20 lg:mt-24">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            <div className="relative aspect-[4/3] lg:col-span-7 lg:aspect-auto">
-              <div className="clip-diagonal-r absolute inset-0">
-                <Image
-                  src="/images/brochure/manufacturing-factory.jpg"
-                  alt="NB Polyfilms production floor with rotogravure printing and lamination lines"
-                  fill
-                  sizes="(min-width: 1024px) 58vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-center gap-8 bg-navy-900 px-8 py-14 lg:col-span-5 lg:px-14 lg:py-0">
+          <div className="bg-navy-900 px-8 py-12 md:px-12 lg:px-14">
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+              <div className="lg:col-span-4">
               <p className="max-w-xs text-balance font-display text-xl font-medium leading-snug text-white">
                 State-of-the-art infrastructure for flexible packaging.
               </p>
-              <div className="flex flex-col divide-y divide-line-dark">
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-2">
                 {capabilities.map((cap) => (
                   <div
                     key={cap.name}
                     id={cap.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
-                    className="flex scroll-mt-28 items-center gap-5 py-4 first:pt-0 last:pb-0"
+                    className="flex scroll-mt-28 flex-col gap-4 border-t border-white/12 pt-4"
                   >
-                    <div className="relative h-14 w-20 shrink-0 overflow-hidden">
-                      <Image
-                        src={cap.image}
-                        alt={cap.name}
-                        fill
-                        sizes="80px"
-                        className="object-cover"
-                      />
-                    </div>
+                    {cap.image && (
+                      <div className="relative aspect-[16/9] w-full overflow-hidden">
+                        <Image
+                          src={cap.image}
+                          alt={cap.name}
+                          fill
+                          sizes="(min-width: 1024px) 27vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
                     <div className="flex flex-col gap-0.5">
                       <span className="font-display text-[15px] font-semibold text-white">
                         {cap.name}
