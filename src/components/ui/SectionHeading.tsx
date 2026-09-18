@@ -11,7 +11,7 @@ export function Eyebrow({
     <div className="flex items-center">
       <span
         className={`font-display text-xs font-semibold uppercase tracking-[0.28em] ${
-          tone === "dark" ? "text-blue-600" : "text-blue-500"
+          tone === "dark" ? "text-navy-900" : "text-white"
         }`}
       >
         {children}
@@ -52,7 +52,7 @@ export function SectionHeading({
       {description && (
         <p
           className={`max-w-sm text-balance text-[15px] leading-relaxed ${
-            tone === "dark" ? "text-ink-soft" : "text-silver-300"
+            tone === "dark" ? "text-ink" : "text-silver-300"
           }`}
         >
           {description}

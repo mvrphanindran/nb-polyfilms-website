@@ -1,58 +1,102 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { quality } from "@/lib/content";
+import { quality, qaProcesses } from "@/lib/content";
 
 export function Quality() {
   return (
-    <section id="quality" className="relative overflow-hidden bg-navy-900 py-20 lg:py-24">
-      <Container>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-end lg:gap-16">
-        <div className="flex flex-col gap-8 lg:col-span-5">
-          <SectionHeading
-            eyebrow="Quality"
-            title={
-              <>
-                Quality you
-                <br />
-                can trust.
-              </>
-            }
-            tone="light"
-          />
-          <p className="max-w-sm text-[15px] leading-relaxed text-silver-300">
-            Quality is at the core of everything we do. From raw material to
-            finished product, every step is measured, monitored and perfected
-            to deliver consistent performance you can rely on.
-          </p>
-          <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden">
-            <Image
-              src="/images/Quality-Testing-Detail.png"
-              alt="In-house quality testing of NB Polyfilms film"
-              fill
-              sizes="(min-width: 1024px) 30vw, 80vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:col-span-7 lg:grid-cols-2">
-          {quality.map((item) => (
-            <div
-              key={item.title}
-              id={item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
-              className="flex scroll-mt-28 flex-col gap-2 border-t border-white/12 pt-4"
-            >
-              <h3 className="font-display text-[15px] font-semibold text-white">
-                {item.title}
-              </h3>
-              <p className="text-[13px] leading-relaxed text-silver-300">
-                {item.description}
+    <article>
+      <section className="relative overflow-hidden pt-40 pb-24 lg:pt-48 lg:pb-28">
+        <Container>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <div className="flex flex-col gap-6">
+              <SectionHeading
+                eyebrow="Quality"
+                title={
+                  <>
+                    Quality, checked
+                    <br />
+                    at every stage.
+                  </>
+                }
+                tone="light"
+              />
+              <p className="max-w-md text-[15px] leading-relaxed text-white">
+                Quality is at the core of everything we do. From raw material to
+                finished product, every step is measured, monitored and perfected
+                to deliver consistent performance you can rely on.
               </p>
             </div>
-          ))}
-        </div>
-      </div>
-      </Container>
-    </section>
+            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden lg:justify-self-end">
+              <Image
+                src="/images/Quality-Testing-Detail.png"
+                alt="In-house quality testing of NB Polyfilms film"
+                fill
+                sizes="(min-width: 1024px) 34vw, 80vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="mt-16 flex flex-col gap-10 sm:flex-row sm:flex-wrap sm:gap-x-12 sm:gap-y-10 lg:mt-20">
+            {quality.map((item) => (
+              <div key={item.title} className="flex max-w-xs flex-col gap-2">
+                <h3 className="font-display text-[15px] font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="text-[13.5px] leading-relaxed text-white/80">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 lg:py-20">
+        <Container>
+          <div className="flex max-w-2xl flex-col gap-5">
+            <span className="font-display text-xs font-semibold uppercase tracking-[0.28em] text-black">
+              How Quality Is Built In
+            </span>
+            <h2 className="font-display text-3xl font-semibold leading-[1.08] tracking-tight text-navy-900 sm:text-4xl">
+              Quality control across flexible packaging converting.
+            </h2>
+            <p className="text-[15px] leading-relaxed text-black">
+              Consistent packaging isn&apos;t the result of one inspection at the
+              end of the line — it&apos;s checked at every stage a roll passes
+              through, from the material that comes in to the pack that goes
+              out. Here is what that looks like, stage by stage.
+            </p>
+          </div>
+
+          <div className="mt-14 flex flex-col gap-14 lg:mt-16 lg:gap-16">
+            {qaProcesses.map((item, index) => (
+              <div
+                key={item.title}
+                className="flex flex-col gap-3 sm:flex-row sm:gap-10"
+              >
+                <div className="flex shrink-0 items-baseline gap-3 sm:w-40">
+                  <span className="font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-black/50">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-black/50">
+                    {item.stage}
+                  </span>
+                </div>
+                <div className="flex max-w-2xl flex-col gap-2">
+                  <h3 className="font-display text-xl font-semibold leading-snug text-navy-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-black">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+    </article>
   );
 }

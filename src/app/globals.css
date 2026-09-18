@@ -16,6 +16,7 @@
 
   --color-blue-600: #1e4fd6;
   --color-blue-500: #2f63e8;
+  --color-blue-300: #86a8f2;
   --color-blue-50: #eef2fc;
 
   --color-silver-300: #c3cbd1;
@@ -24,6 +25,24 @@
 
   --color-line: #e2e5ea;
   --color-line-dark: rgba(255, 255, 255, 0.14);
+
+  /*
+   * Atmosphere: the site-wide vertical colour field every page's <main>
+   * flows through, deep navy at the top to pale blue at the bottom.
+   * Desaturated on purpose — this is a quiet industrial gradient, not a
+   * digital-blue SaaS one. Stop 1 matches --color-navy-900 exactly so the
+   * hero sections (which still use navy-900 as their own fallback/scrim
+   * colour) meet the field with no visible seam.
+   */
+  --atmosphere-1: #0b1f3a; /* deep navy   (= navy-900) */
+  --atmosphere-2: #15325c; /* royal blue */
+  --atmosphere-3: #2b4c82; /* rich blue */
+  --atmosphere-4: #4e71a0; /* dusty blue */
+  --atmosphere-5: #8098b9; /* powder blue */
+  --atmosphere-6: #a9bad3; /* baby blue */
+  --atmosphere-7: #c8d5e6; /* ice blue */
+  --atmosphere-8: #e0e8f2; /* mist blue */
+  --atmosphere-9: #f5f8fb; /* pale blue */
 
   --font-display: var(--font-archivo);
   --font-body: var(--font-inter);
@@ -46,6 +65,7 @@
 
   --color-blue-600: var(--color-blue-600);
   --color-blue-500: var(--color-blue-500);
+  --color-blue-300: var(--color-blue-300);
   --color-blue-50: var(--color-blue-50);
 
   --color-silver-300: var(--color-silver-300);
@@ -119,6 +139,29 @@ body {
   .field-fade {
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 97%);
     mask-image: linear-gradient(to bottom, black 0%, black 58%, transparent 97%);
+  }
+
+  /*
+   * The global atmosphere. Applied once to <main> in the root layout so
+   * every route gets its own top-to-bottom navy → pale-blue field, scaled
+   * to that page's own height (percentage stops size to the element's box,
+   * not the viewport, so short and long pages both run the full range).
+   * Individual sections stay transparent and let this show through instead
+   * of resetting to their own solid background.
+   */
+  .atmosphere {
+    background-image: linear-gradient(
+      to bottom,
+      var(--atmosphere-1) 0%,
+      var(--atmosphere-2) 12%,
+      var(--atmosphere-3) 26%,
+      var(--atmosphere-4) 42%,
+      var(--atmosphere-5) 56%,
+      var(--atmosphere-6) 68%,
+      var(--atmosphere-7) 79%,
+      var(--atmosphere-8) 90%,
+      var(--atmosphere-9) 100%
+    );
   }
 }
 

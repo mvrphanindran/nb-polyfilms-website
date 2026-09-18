@@ -3,9 +3,9 @@ import { Container } from "@/components/ui/Container";
 
 export function HomeCTA() {
   return (
-    <section className="relative bg-paper py-20 lg:py-24">
+    <section className="relative py-20 lg:py-24">
       <Container>
-        <div className="flex flex-col items-start justify-between gap-8 bg-white px-6 py-8 sm:flex-row sm:items-center md:px-8">
+        <div className="flex flex-col items-start justify-between gap-8 border-t border-line pt-8 sm:flex-row sm:items-center">
           <h2 className="max-w-md font-display text-balance text-2xl font-semibold leading-tight tracking-tight text-navy-900 sm:text-3xl">
             Great packaging starts with a conversation.
           </h2>

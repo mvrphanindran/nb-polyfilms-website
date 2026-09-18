@@ -8,7 +8,9 @@ import { capabilities } from "@/lib/content";
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
-const NAV_LINKS = [
+type NavItem = { label: string; href: string; items?: NavItem[] };
+
+const NAV_LINKS: NavItem[] = [
   { label: "Home", href: "/" },
   {
     label: "About NB",
@@ -22,15 +24,8 @@ const NAV_LINKS = [
     label: "Solutions",
     href: "/solutions",
     items: [
-      {
-        label: "Flexible Laminates",
-        href: "/solutions#flexible-laminates",
-        items: [
-          { label: "Pouches", href: "/solutions#pouches" },
-          { label: "Rollstock", href: "/solutions#rollstock" },
-        ],
-      },
-      { label: "Shrink Sleeves", href: "/solutions#shrink-sleeves" },
+      { label: "Product Range", href: "/#solutions" },
+      { label: "Industries We Serve", href: "/industries" },
     ],
   },
   {
@@ -45,16 +40,14 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const lightMode = isHome && !scrolled;
+  const lightMode = !scrolled;
 
   useEffect(() => {
-    if (!isHome) return;
     const onScroll = () => setScrolled(window.scrollY > 520);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";

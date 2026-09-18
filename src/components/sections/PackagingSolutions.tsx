@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { productAreas } from "@/lib/content";
 
 export function PackagingSolutions() {
   return (
-    <section id="solutions" className="relative bg-paper py-24 lg:py-32">
+    <section id="solutions" className="relative py-24 lg:py-32">
       <Container>
         <SectionHeading
           eyebrow="Packaging Solutions"
@@ -15,22 +16,28 @@ export function PackagingSolutions() {
               every application.
             </>
           }
-          description="Solutions engineered for protection, performance and freshness — across five core packaging formats."
+          description="Solutions engineered for protection, performance and freshness — across our core packaging formats."
           align="split"
         />
       </Container>
 
-      <Container className="mt-14 lg:mt-16">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div className="mt-14 snap-x snap-mandatory overflow-x-auto pb-4 lg:mt-16 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex w-max gap-6 px-6 md:px-10 lg:px-16">
           {productAreas.map((product, i) => (
             <div
               key={product.slug}
               id={product.slug}
-              className={`flex scroll-mt-28 flex-col gap-5 border border-line bg-white p-6 ${
-                i === 0 ? "md:col-span-2" : ""
-              }`}
+              className="w-[78vw] shrink-0 scroll-mt-28 snap-start sm:w-[46vw] lg:w-[26vw]"
             >
-              <div className="flex items-start gap-4">
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={product.imageWidth}
+                height={product.imageHeight}
+                sizes="(min-width: 1024px) 26vw, (min-width: 640px) 46vw, 78vw"
+                className="h-auto w-full"
+              />
+              <div className="mt-5 flex items-start gap-4">
                 <span className="font-display text-sm font-semibold text-blue-600">
                   0{i + 1}
                 </span>
@@ -46,7 +53,7 @@ export function PackagingSolutions() {
             </div>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

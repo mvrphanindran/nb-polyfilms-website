@@ -5,7 +5,7 @@ import { companyMeta } from "@/lib/content";
 
 export function Hero() {
   return (
-    <section className="relative -mt-20 overflow-hidden bg-white">
+    <section className="relative -mt-20 overflow-hidden">
       {/* One continuous field: photography + brand scrim, masked as a single
           unit so the whole composition dissolves toward white together —
           no separate overlay boxes, no hard edges. */}
@@ -23,7 +23,7 @@ export function Hero() {
 
       <StructureLine tone="light" />
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col justify-center gap-8 px-6 pb-28 pt-36 md:px-10 lg:px-16 lg:pt-32">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col justify-center gap-8 px-6 pb-28 pt-44 md:px-10 lg:px-16 lg:pt-40">
         <div className="flex items-center gap-3">
           <span className="h-px w-8 bg-blue-500" />
           <span className="font-display text-xs font-semibold uppercase tracking-[0.28em] text-blue-400">
@@ -59,12 +59,13 @@ export function Hero() {
           >
             Explore Solutions
           </Link>
-          <Link
-            href="/contact"
+          <a
+            href="/nb-polyfilms-brochure.pdf"
+            download
             className="inline-flex items-center gap-2 px-2 py-3.5 font-display text-[13px] font-medium uppercase tracking-[0.14em] text-white transition-colors hover:text-blue-400"
           >
-            Get in Touch
-          </Link>
+            Download Brochure
+          </a>
         </div>
       </div>
     </section>

@@ -51,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
         <Header />
-        <main className="flex-1 pt-20">{children}</main>
+        <main className="atmosphere flex-1 pt-20">{children}</main>
         <Footer />
       </body>
     </html>

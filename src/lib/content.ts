@@ -4,32 +4,30 @@
 
 export const productAreas = [
   {
-    slug: "flexible-laminates",
-    name: "Flexible Laminates",
-    description: "Advanced multi-layer laminates for superior performance.",
-  },
-  {
     slug: "pouches",
     name: "Pouches",
     description:
       "A wide range of pouches designed for functionality, convenience and appeal.",
+    image: "/images/Pouch-Format-Grouping.png",
+    imageWidth: 1536,
+    imageHeight: 1024,
   },
   {
     slug: "rollstock",
     name: "Rollstock",
     description:
       "High-quality printed and unprinted rolls for diverse packaging needs.",
-  },
-  {
-    slug: "high-barrier-packaging",
-    name: "High Barrier Packaging",
-    description:
-      "High barrier solutions that protect your product and extend shelf life.",
+    image: "/images/Finished-rollstock.png",
+    imageWidth: 1448,
+    imageHeight: 1086,
   },
   {
     slug: "shrink-sleeves",
     name: "Shrink Sleeves",
     description: "PVC and PETG shrink sleeves for full-body product presentation.",
+    image: "/images/Shrink-Sleeve on-Container.png",
+    imageWidth: 1086,
+    imageHeight: 1448,
   },
 ] as const;
 
@@ -41,28 +39,74 @@ export const structures = [
   { code: "BOPA / PE" },
 ] as const;
 
+// Infrastructure page nav anchors — one entry per major capability section.
 export const capabilities = [
-  {
-    name: "Rotogravure Printing",
-    tagline: "Vibrant. Consistent. Precise.",
-    image: "/images/Capability- Rotogravure Printing.png",
-  },
-  {
-    name: "Lamination",
-    tagline: "Strong, uniform bonding.",
-    image: "/images/Capability-Lamination.png",
-  },
-  {
-    name: "Extrusion",
-    tagline: "Reliable film quality.",
-    image: null,
-  },
-  {
-    name: "Slitting & Rewinding",
-    tagline: "Accuracy in every roll.",
-    image: null,
-  },
+  { name: "Rotogravure Printing" },
+  { name: "In-line Flexo" },
+  { name: "Lamination" },
+  { name: "Extrusion Coating Lamination" },
+  { name: "UV Coating" },
+  { name: "Hot Foil Stamping & Embossing" },
+  { name: "Slitting" },
+  { name: "Blown Film" },
 ] as const;
+
+// Machine and capacity data for the Infrastructure page. Figures supplied
+// directly by the client — do not alter, round, or supplement with figures
+// from another source.
+export const rotogravurePresses = [
+  { name: "Printing 1", speed: "220 mpm", width: "1000 mm", colours: "8" },
+  { name: "Printing 2", speed: "200 mpm", width: "1000 mm", colours: "8" },
+  { name: "Printing 3", speed: "250 mpm", width: "1300 mm", colours: "8" },
+  { name: "Printing 4", speed: "350 mpm", width: "1300 mm", colours: "8+1" },
+] as const;
+
+export const inlineFlexoPress = {
+  name: "Printing 5",
+  speed: "175 mpm",
+  width: "670 mm",
+  colours: "10",
+};
+
+export const solventlessLamination = {
+  quantity: "4",
+  width: "1300 mm",
+  speed: "350 mpm",
+};
+
+export const triplexLamination = {
+  speed: "200 mpm",
+  hoodLength: "14 meter",
+  hotAir: "up to 220°C",
+  width: "1020 mm",
+};
+
+export const extrusionCoatingLamination = {
+  coating: "7–30 gsm",
+  width: "1300 mm",
+};
+
+export const uvCoating = {
+  speed: "200 mpm",
+  width: "1080 mm",
+};
+
+export const hotFoilStamping = {
+  speed: "125 stamps/minute",
+  width: "1080 mm",
+};
+
+export const slitting = {
+  quantity: "4",
+  speed: "450 mpm",
+  width: "1300 mm",
+};
+
+export const blownFilm = {
+  layers: "Three-layer",
+  output: "200 kg/hr",
+  width: "1600 mm",
+};
 
 export const process = [
   { step: "01", label: "Raw Material", image: "/images/Process 01-rawMaterial.png" },
@@ -74,17 +118,110 @@ export const process = [
 ] as const;
 
 export const industries = [
-  { name: "FMCG", description: "Reliable packaging for fast-moving products across categories." },
-  { name: "Snacks", description: "Crisp, fresh and impactful packaging that delights." },
-  { name: "Spices", description: "Aroma-lock packaging that preserves purity and flavor." },
-  { name: "Tea & Coffee", description: "Freshness and aroma retention in every cup." },
-  { name: "Dry Fruits", description: "Premium packaging that protects goodness within." },
-  { name: "Frozen Foods", description: "High barrier packaging for safe freezing and longer shelf life." },
-  { name: "Agriculture & Seeds", description: "Durable packaging that safeguards seeds and grains." },
-  { name: "Edible Oil", description: "Leak-proof, strong and reliable packaging." },
-  { name: "Pesticides", description: "Safe, secure and compliant packaging solutions." },
-  { name: "Grocery & Household", description: "Practical packaging for everyday essentials." },
+  {
+    slug: "fmcg",
+    name: "FMCG",
+    description: "Reliable packaging for fast-moving products across categories.",
+    image: "/images/Pouch-Format-Range.png",
+    banner: "/images/solutions/fmcg.png",
+  },
+  {
+    slug: "snacks",
+    name: "Snacks",
+    description: "Crisp, fresh and impactful packaging that delights.",
+    image: "/images/Pouch-Format-Grouping.png",
+    banner: "/images/solutions/snacks.png",
+  },
+  {
+    slug: "spices",
+    name: "Spices",
+    description: "Aroma-lock packaging that preserves purity and flavor.",
+    image: "/images/Printed Laminate-In-Process.png",
+    banner: "/images/solutions/spices-masala.png",
+  },
+  {
+    slug: "tea-coffee",
+    name: "Tea & Coffee",
+    description: "Freshness and aroma retention in every cup.",
+    image: "/images/Printed Laminate Close-Up.png",
+    banner: "/images/solutions/tea-coffee.png",
+  },
+  {
+    slug: "dry-fruits",
+    name: "Dry Fruits",
+    description: "Premium packaging that protects goodness within.",
+    image: "/images/Multi-Layer Structure Cross-Section.png",
+    banner: "/images/solutions/dryfruits-nuts.png",
+  },
+  {
+    slug: "frozen-foods",
+    name: "Frozen Foods",
+    description: "High barrier packaging for safe freezing and longer shelf life.",
+    image: "/images/Mono-Material Film.png",
+    banner: "/images/solutions/frozen food.png",
+  },
+  {
+    slug: "agriculture-seeds",
+    name: "Agriculture & Seeds",
+    description: "Durable packaging that safeguards seeds and grains.",
+    image: "/images/Finished-rollstock.png",
+    banner: "/images/solutions/Agriculture.png",
+  },
+  {
+    slug: "confectionery",
+    name: "Confectionery",
+    description: "Flexible packaging for chocolates, candies and confectionery.",
+    image: "/images/Pouch-Format-Grouping.png",
+    banner: "/images/solutions/confectioneries.png",
+  },
+  {
+    slug: "toiletries",
+    name: "Toiletries",
+    description: "Flexible packaging for personal care and toiletry products.",
+    image: "/images/Shrink-Sleeve on-Container.png",
+    banner: "/images/solutions/toiletries.png",
+  },
+  {
+    slug: "idly-dosa-batter",
+    name: "Idly & Dosa Batter",
+    description: "Packaging for fresh, ready-to-use batters and everyday foods.",
+    image: "/images/Printed Laminate-In-Process.png",
+    banner: "/images/solutions/idly-dsoa-batter.png",
+  },
+  {
+    slug: "pet-food",
+    name: "Pet Food",
+    description: "Flexible packaging for pet food and pet care products.",
+    image: "/images/Hands-On Process Detail.png",
+    banner: "/images/solutions/Pet-food.png",
+  },
+  {
+    slug: "edible-oil",
+    name: "Edible Oil",
+    description: "Leak-proof, strong and reliable packaging.",
+    image: "/images/Solutions Tile-Material Detail.png",
+    banner: null,
+  },
+  {
+    slug: "pesticides",
+    name: "Pesticides",
+    description: "Safe, secure and compliant packaging solutions.",
+    image: "/images/Hands-On Process Detail.png",
+    banner: null,
+  },
+  {
+    slug: "grocery-household",
+    name: "Grocery & Household",
+    description: "Practical packaging for everyday essentials.",
+    image: "/images/Shrink-Sleeve on-Container.png",
+    banner: null,
+  },
 ] as const;
+
+// The Solutions landing page shows exactly the industries a client photo
+// banner exists for, in that banner's own order — not the full industries
+// list (which also includes a few industries with no banner yet).
+export const solutionsGallery = industries.filter((i) => i.banner !== null);
 
 export const whyNB = [
   {
@@ -132,13 +269,63 @@ export const quality = [
   },
 ] as const;
 
+// General QA/QC practice across the flexible packaging converting industry,
+// mapped to NB's own process stages (see `process`). Describes standard
+// industry checks, not specific instrument brands or certifications.
+export const qaProcesses = [
+  {
+    stage: "Raw Material",
+    title: "Incoming material checks.",
+    description:
+      "Films and substrates are checked on arrival for thickness, appearance and consistency before they are released into printing and lamination, so that any variation is caught before it enters the process rather than after.",
+  },
+  {
+    stage: "Printing",
+    title: "Print and colour consistency.",
+    description:
+      "Printed rolls are monitored for registration, colour accuracy and shade consistency during the run, typically checked under standardised lighting conditions so that colour reads the same from the first roll to the last.",
+  },
+  {
+    stage: "Lamination",
+    title: "Bond strength verification.",
+    description:
+      "The bond between laminated layers is tested for peel and adhesive strength, confirming that the structure holds together through filling, handling and transport rather than only under lab conditions.",
+  },
+  {
+    stage: "Slitting",
+    title: "Dimensional accuracy.",
+    description:
+      "Slit width, roll tension and winding are checked so finished rolls run cleanly on customers' packing and filling lines without misfeeds or tension-related defects.",
+  },
+  {
+    stage: "Inspection",
+    title: "Physical and performance testing.",
+    description:
+      "Properties such as coefficient of friction, thermal stability and tensile strength are evaluated against the requirement of the application, since a structure that performs on paper still has to behave correctly on a running line.",
+  },
+  {
+    stage: "Inspection",
+    title: "Seal and pack integrity.",
+    description:
+      "Finished pouches and seals are checked for leaks and seal integrity, which is standard practice across the flexible packaging industry wherever a pack has to protect its contents through distribution and shelf life.",
+  },
+  {
+    stage: "Finished Product",
+    title: "Final inspection and documentation.",
+    description:
+      "Before dispatch, finished rolls and pouches go through a final check against the order specification, with results recorded so that quality stays traceable back to the batch it came from.",
+  },
+] as const;
+
 export const companyMeta = {
   established: "2003",
   coreBusiness: "Flexible Packaging",
-  tagline: "Flexible packaging solutions for a better tomorrow.",
+  tagline: "A flexible packaging converter built on integrated capability.",
   positioningHeadline: "Engineered flexible packaging, built for performance.",
   description:
     "NB Polyfilms is a flexible packaging converter established in 2003, delivering high-performance packaging solutions for a wide range of products and industries. The company turns film into functional, reliable and shelf-ready packaging.",
+  // TODO: replace with the confirmed NB Polyfilms contact email.
+  email: "info@nbpolyfilms.com",
 };
 
 export const aboutNB = {
@@ -193,7 +380,7 @@ export const aboutNB = {
 export const homeHighlights = [
   {
     title: "Packaging Solutions",
-    teaser: "Laminates, pouches, rollstock, barrier packaging and shrink sleeves.",
+    teaser: "Pouches, rollstock and shrink sleeves engineered around your product.",
     href: "/solutions",
     image: "/images/Solutions Tile-Material Detail.png",
   },
